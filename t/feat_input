@@ -70,17 +70,26 @@ NAME='"?e foo" "?e bar"'
 FILE=malloc://1024
 ARGS=
 CMDS='
-"?e foo" "?e bar"
+"?e foo";"?e bar"
 '
 EXPECT='foo
 bar
 '
 run_test
 
-NAME='at3 "?vi $$"@3 "?e bar"'
+NAME='at3 "?vi $$"@3;"?e bar"'
 FILE=malloc://1024
 ARGS=
-CMDS='"?vi $$"@3 "?e bar"'
+CMDS='"?vi $$"@3;?e bar'
+EXPECT='3
+bar
+'
+run_test
+
+NAME='at3 "?vi $$"@3;"?e bar"'
+FILE=malloc://1024
+ARGS=
+CMDS='"?vi $$"@3;"?e bar"'
 EXPECT='3
 bar
 '
